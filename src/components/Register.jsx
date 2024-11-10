@@ -6,6 +6,8 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        // create a user
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
