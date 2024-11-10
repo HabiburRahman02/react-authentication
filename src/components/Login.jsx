@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 
 const Login = () => {
-    const { loginUser, googleLogin } = useContext(AuthContext);
+    const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
     // const navigate = useNavigate()
 
     const handleLogin = e => {
@@ -27,6 +27,16 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         googleLogin()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
+    const handleGithubLogin = () => {
+        githubLogin()
             .then(result => {
                 console.log(result.user);
             })
@@ -67,6 +77,9 @@ const Login = () => {
                         <button
                             onClick={handleGoogleLogin}
                             className="btn hover:btn-secondary w-1/2 mt-6">Google</button>
+                        <button
+                            onClick={handleGithubLogin}
+                            className="btn btn-outline hover:btn-accent w-1/2 mt-6">Github</button>
                     </form>
                 </div>
             </div>
